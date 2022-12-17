@@ -33,6 +33,8 @@ So we will first filter out all the current status records because they are not 
    
 - Finally after preprcoessing and cleaning the data we can continue with EDA.
 
+- **You Can refert to these steps in the [Preprocessing Notebook](https://github.com/abduulrahmankhalid/Bondora-Financial-Risk-Prediction/blob/main/Bondora_Complete_Preprocessing.ipynb)**
+
 # **Exploratory Data Analysis**
 - First of all we need to perform data cleaning and fill all the null values , we seperated the categorical features and filled the null values in it with the Mode, and for the Numerical Features we fill it with the Mean. and dropped unwanted strings columns.
 
@@ -90,3 +92,61 @@ So we will first filter out all the current status records because they are not 
 - **You Can See Far more Insights in the [EDA Notebook](https://github.com/abduulrahmankhalid/Bondora-Financial-Risk-Prediction/blob/main/Bondora_Complete_EDA.ipynb)**
 
 # **Feature Engineering**
+
+- Starting with the Mutual information selection between features and target variable , To detect any kind of relationship, Unlike correlation that can only detect linear relationships.
+
+![mi](https://user-images.githubusercontent.com/76521677/208267275-4801be69-b185-4085-9305-9ce5760fc99c.png)
+
+> We can that the top 3 features are the ones that have high corralation with the target variables.
+
+- Let's fast check the model performence to make a baseline before feature engineering
+
+![test](https://user-images.githubusercontent.com/76521677/208267335-f3aaf8ae-4923-438a-87f1-6a6e7e912f63.png)
+
+> and here we get 99% accuaracy without any feature engineering using random forest classifer, obviously it is overfitting the top 3 features we have which are leaky features that are made after the loan has been accepted, and due to they won't be available at deployment , we will drop those 3 features
+
+- After dropping the leaky features we get reasonalbe intial accuarcay with 74%, with proper feature importance to most features
+
+![test2](https://user-images.githubusercontent.com/76521677/208267434-afdf3c34-6de9-4ad0-9f65-67f95e87fc79.png)
+
+- Moving on , we will remove outliers with percetiles only between `quantile([0.001, 0.99]` , resulting in decreasing number of rows from `77393` to `67314 `.
+
+- Then Encoding Categorcial Features with Label Encoding using pandas `factorize` method.
+
+- And Normalizing the features with sklearn `StandardScaler` and transforming the features making the highly skewed features less skewed with `PowerTransformer`.
+
+- Jumping on to Cluster analysis, First by finding the optimal number of clusters with the elbow method
+
+![clusters](https://user-images.githubusercontent.com/76521677/208267630-4563e618-7c46-4f8a-96fb-561fce846e95.png)
+
+> Clustering was't very helpful with increasing accuracy
+
+- Now with PCA
+  - Let's first Find Optimum Number of Components with the elbow method
+   
+     ![pca](https://user-images.githubusercontent.com/76521677/208267673-94d36cf2-e5fa-4d9d-910f-1c35221066d0.png)
+     
+  - And Testing the Performence with the selected 16 components of PCA, Was't very great. Only 71% Acc
+  
+    ![pca test](https://user-images.githubusercontent.com/76521677/208267739-d7c9dd5c-d251-42a6-be0f-b791d3662cfa.png)
+    
+- Let's now perform Feature Selection 
+  - First Dropping Most Corralted Features to each other
+ 
+  - Seconly using RFE (Recursive Feature Elimination) with Random Forest, Selecting the top 20 most important features
+  
+  ![rfe](https://user-images.githubusercontent.com/76521677/208267821-246afc70-f815-497e-865e-8cdace347a9e.png)
+  
+  > Nearly no diffrence in Accuracy with 74% also, but with only 20 features not 47.
+
+- Finally, Comparing Performence for Selected Features with XGboost and Logistic Regression
+  
+  - XGBoost intersingly gave less accuracy than Random Forest 71%
+
+  - Not so diffrent with Logistic Regression giving about 70% Accuracy.
+
+- **You Can refert to these steps in the [Feature Engineering Notebook](https://github.com/abduulrahmankhalid/Bondora-Financial-Risk-Prediction/blob/main/Feature_Engineering_Team_A.ipynb)**
+
+# **Classification Modeling**
+- 
+ 
