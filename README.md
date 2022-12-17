@@ -148,5 +148,66 @@ So we will first filter out all the current status records because they are not 
 - **You Can refert to these steps in the [Feature Engineering Notebook](https://github.com/abduulrahmankhalid/Bondora-Financial-Risk-Prediction/blob/main/Feature_Engineering_Team_A.ipynb)**
 
 # **Classification Modeling**
-- 
+- We know that our current accuracy is 74% with random forest using 20 features after feature engineering.
+- We will use two models in the classification part `RandomForestClassifier` and `LogisticRegression`.
+- We will first make a pipleine that has the preprocessing steps `StandardScaler` and `PowerTransformer` with the random forest model and other with the logostic regression.
+- Now, With the **Hyper Parameters Tuning**
+  - Firstly trying grid search with 3 diffrent values for Random Forest `n_estimators, max_features, max_depth, min_samples_split , min_samples_leaf` , and `penalty, C, Solver` for Logitic Regression , Resulting in not very increase in accuracy with Random Forest and in a slight increase 70% with Logistic Regression.
+  - Secondly with Randomized Search with more range in values for the same hyper parameters , resulting in a slight increase in accuracy 75% with Random Forest. But same accuracy with Logistic Regression.
+  
+- Let's Proceed with Model Evaluation
+  - with Random Forest Roc Auc Score was 80% 
  
+    ![rf](https://user-images.githubusercontent.com/76521677/208268956-59c92676-a7ff-4767-b472-58281d1dd3b2.png)
+    
+    ![rf1](https://user-images.githubusercontent.com/76521677/208268970-d866a15b-9e06-4255-ad61-3433c43bfd8c.png)
+    
+    > with Classification Matrix for Random Forest Model We can see the Model Struggling with the Not Defualted Class.
+   
+   - with Logistic Regression Roc Auc Score was only 70% 
+ 
+    ![lr](https://user-images.githubusercontent.com/76521677/208269026-546a1607-c9a2-409e-b13b-3f4f92c0aa03.png)
+    
+    ![lr1](https://user-images.githubusercontent.com/76521677/208269029-fc344386-5efb-465a-b8b8-04e650591f13.png)
+
+    > with Classification Matrix for Logistic Regression  We can see the Model also Struggling with the Not Defualted Class.
+
+- We will proceed with the Random Forest Model due to it's better accuracy (75%).
+
+# **Regression Modeling**
+- for the Regression Part we have three Target Varialbes
+  - Preferred EMI (Monthly Payment)
+  - Repayment Years (Should be able to pay the loan for that period)
+  - ROI (Return on Investment)
+ 
+- We will first Create these Features
+  - EMI = [P x R x (1+R)^N]/[(1+R)^N-1], where P stands for the loan amount or principal, R is the interest rate per month [if the interest rate per annum is 11%, then the rate of interest will be 11/(12 x 100)], and N is the number of monthly instalments. Using `Amount, Interest, LoanDuration` Features
+   - ROI = Investment Gain / Investment Base , ROI = Amount lended * interest/100
+  > ROI = Interest Amount / Total Amount. Creating First `InterestAmount , TotalAmount`. 
+  - Repayment Years : Calculting how many months to pay the full total amount of the loans , then dividing it to years.
+
+- After Creating the 3 Target Variables we will try `Linear Regression` and `Adaboost Regressor` Models
+- with `Linear Regression` the Accuracy was not that bad.
+  - giving 66% for `Repayment Years` 
+  - Interstingly giving 86% for `EMI`
+  - giving 95% for `ROI`
+
+- with `Adaboost Regressor` the Accuracy was far better.
+  - giving 86% for `Repayment Years`  
+  - Interstingly giving 84% for `EMI`
+  - giving 99% for `ROI`
+
+- We will proceed with the `Adaboost Regressor` due to it's better accuracy in the 3 Target Variables.
+
+# **Making Piplines**
+
+
+
+
+
+
+
+
+
+
+
