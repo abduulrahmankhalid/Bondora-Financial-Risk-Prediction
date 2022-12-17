@@ -174,6 +174,8 @@ So we will first filter out all the current status records because they are not 
 
 - We will proceed with the Random Forest Model due to it's better accuracy (75%).
 
+- **You Can refert to these steps in the [Classification Modeling Notebook](https://github.com/abduulrahmankhalid/Bondora-Financial-Risk-Prediction/blob/main/Classification_Modeling_Team_A.ipynb)**
+
 # **Regression Modeling**
 - for the Regression Part we have three Target Varialbes
   - Preferred EMI (Monthly Payment)
@@ -199,15 +201,34 @@ So we will first filter out all the current status records because they are not 
 
 - We will proceed with the `Adaboost Regressor` due to it's better accuracy in the 3 Target Variables.
 
+- **You Can refert to these steps in the [Regression Modeling Notebook](https://github.com/abduulrahmankhalid/Bondora-Financial-Risk-Prediction/blob/main/Regression_Modeling_Team_A.ipynb)**
+
 # **Making Piplines**
 
+- First we will save the trained models in a pickle files to load them fast when we make the web application with Flask
+
+- For the Classification Model `Random Forest` Model Size was above 100MB , So we had to compress it with Joblib Library, Making it about 20MB.
+
+- and for Regression Model we saved the three `Adaboost Regressor` Models trained on sepeate targer variables.
+
+- Also Saving the Preprocessing Pipeline to Transform new Prediction Data. 
+
+- Then We Proceed to make one prediction function that takes as an input the 20 features we selected in the Feature Engineering Part.
+
+- The Prediction Function had
+  
+  - Process input data , handel their datatypes to same as original trained data.
+  - Encoding Catergorical Features the same way Encoded in training
+  - Transformin the data with the Preprcoessing Pipeline, to be in the same format the Models trained on.
+  - Finally Making Predictions with the saved models.
+  - Outputing a dataframe that has the full four target variables    
 
 
+- Finally we Checked accuracy predicting the Whole Data
+  - For the Classification Modeling , the Accuracu was pretty good about 94%.
+  - For the Regression Modeling, it had a Slight Inrease in Some of the Models. 
 
-
-
-
-
+- **You Can refert to these steps in the [Piplines Notebook](https://github.com/abduulrahmankhalid/Bondora-Financial-Risk-Prediction/blob/main/Regression_Modeling_Team_A.ipynb)**
 
 
 
