@@ -244,4 +244,4 @@ So we will first filter out all the current status records because they are not 
 
 - You Can Check the Deployed Web App [Here](https://bondora-financial-risk-predictor.onrender.com/).
 
-- **You Can refert to these steps in the Deployment Branch.**
+- **You Can refert to these steps in the [Deployment Branch](https://github.com/abduulrahmankhalid/Bondora-Financial-Risk-Prediction/tree/Deployment).**
