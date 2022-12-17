@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='c_style.css') }}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel = "icon" href = '../static/logo.png' type = "image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Bondora Financial Risk Predictor</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header"><h1 style="font-weight: bold;"><img src='../static/logo.png'> Bondora Financial Risk Predictor</h1></div>
+        <header>Enter Your Loan Information</header>
+        <br><br>
+        <form action="{{ url_for('predict')}}" method="post" class="upform">
+            <div class="form first">
+                <div class="details personal">
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Offers made by Porfolio Managers</label>
+                            <input type="text" name="BidsPortfolioManager" placeholder="Number of Bids by Portfolio Manager" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Offers made through API</label>
+                            <input type="text" name="BidsApi" placeholder="Number of Bids by Api" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Offers made Manually</label>
+                            <input type="text" name="BidsManual" placeholder="Number of Bids Manually" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Language</label>
+                            <select required="required" name="LanguageCode">
+                                <option>Estonian</option>
+                                <option>Finnish</option>
+                                <option>Spanish</option>
+                                <option>Russian</option>
+                                <option>English</option>
+                                <option>Slovakian</option>
+                                <option>German</option>
+                                
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Age</label>
+                            <input type="text" name="Age" placeholder="Enter your age" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Interest Rate</label>
+                            <input type="text" name="Interest" placeholder="Maximum Interest rate" required="required"/>
+                        </div>
+                        <div class="input-field">
+                            <label>Loan Duration</label>
+                            <input type="text" name="LoanDuration" placeholder="in Months" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Education</label>
+                            <select required="required" name="Education">
+                                <option>Secondary Education</option>
+                                <option>Higher Education</option>
+                                <option>Vocational Education</option>
+                                <option>Primary Education</option>
+                                <option>Basic Education</option>
+                                <option>Not Set</option>
+                                
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Marital Status</label>
+                            <select required="required" name="MaritalStatus">
+                                <option>Not Specified</option>
+                                <option>Single</option>
+                                <option>Married</option>
+                                <option>Cohabitant</option>
+                                <option>Divorced</option>
+                                <option>Widow</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Current Employment Duration</label>
+                            <select required="required" name="EmploymentDuration">
+                                <option>More than 5 years</option>
+                                <option>Up to 5 years</option>
+                                <option>Up to 1 year</option>
+                                <option>Up to 2 years</option>
+                                <option>Up to 3 years</option>
+                                <option>Retiree</option>
+                                <option>Up to 4 years</option>
+                                <option>Other</option>
+                                <option>Trial Period</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Home Ownership Type</label>
+                            <select required="required" name="HomeOwnershipType">
+                                <option>Owner</option>
+                                <option>Tenant, Pre-Furnished Property</option>
+                                <option>Living with Parents</option>
+                                <option>Mortgage</option>
+                                <option>Tenant, Unfurnished Property</option>
+                                <option>Other</option>
+                                <option>Joint Ownership</option>
+                                <option>Joint Tenant</option>
+                                <option>Council House</option>
+                                <option>Owner with Encumbrance</option>
+                                <option>Not Specified</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Total Income</label>
+                            <input type="text" name="TotalIncome" placeholder="Current Total Income" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Existing Liabilities</label>
+                            <input type="text" name="ExistingLiabilities" placeholder="Number of Existing Liabilities" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Total Liabilities</label>
+                            <input type="text" name="TotalLiabilities" placeholder="Total Monthly Liabilities" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Debt To Income</label>
+                            <input type="text" name="DebtToIncome" placeholder="Amount of income that goes into loan pay" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Free Cash</label>
+                            <input type="text" name="FreeCash" placeholder="Enter income after monthly liabilities" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Monthly Payment Day</label>
+                            <input type="text" name="MonthlyPaymentDay" placeholder="The Day the loan payments are scheduled for" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Rating - Given by Bondora Rating model</label>
+                            <select required="required" name="Rating">
+                                <option>F</option>
+                                <option>E</option>
+                                <option>HR</option>
+                                <option>D</option>
+                                <option>C</option>
+                                <option>B</option>
+                                <option>A</option>
+                                <option>AA</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Previous Repayments Before Loan</label>
+                            <input type="text" name="PreviousRepaymentsBeforeLoan" placeholder="How much repaid before the loan" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Amount</label>
+                            <input type="text" name="Amount" placeholder="Amount received on the Primary Market" required="required" />
+                        </div>
+                    </div>
+                </div>
+                <div class="butt">
+                    <button type="submit" class="btn btn-block btn-large">Predict Status <span class="glyphicon glyphicon-usd" ></span></button>
+                </div>
+            </div>
+        </form>
+        <div class ="pred">
+            {{ prediction_text|safe }}
+        </div>
+        {% if "predict" in request.path %}
+            <div class="downform">
+                <form action="{{ url_for('download')}}" method="post" class="downform">
+                        <div class = "butt">
+                            <button type="submit" class="btn btn-block btn-large">Download Report &nbsp<span class="glyphicon glyphicon-download-alt" ></span></button>
+                        </div>    
+                </form>
+            </div>            
+        {%endif%}
+    </div>
+</body>
+</html>
