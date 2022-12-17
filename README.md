@@ -1,6 +1,10 @@
 # **Bondora-Financial-Risk-Prediction**
 
+## Credit risk modeling of peer-to-peer lending Bondora systems. Applying Data Cleaning to Bondora Raw Loans Dataset, Exploratory Data Visualizations for the data. Feature Engineering for the Modeling part. Classifications and Regression Modeling with Pipelines, and Finally Deployment to a Web Application using Flask and Render.
+
 #### This Repository is Part of the Machine Learning Engineer Internship at Technocolabs
+
+### Deployed Web App at Render : https://bondora-financial-risk-predictor.onrender.com/
 
 # **Abstract**
 - In this project we will be doing credit risk modelling of peer to peer lending Bondora systems, Peer-to-peer lending has attracted considerable attention in recent years, largely because it offers a novel way of connecting borrowers and lenders. But as with other innovative approaches to doing business, there is more to it than that. Some might wonder, for example, what makes peer-to-peer lending so different–or, perhaps, so much better–than working with a bank, or why has it become popular in many parts of the world.
@@ -225,10 +229,17 @@ So we will first filter out all the current status records because they are not 
 
 
 - Finally we Checked accuracy predicting the Whole Data
-  - For the Classification Modeling , the Accuracu was pretty good about 94%.
-  - For the Regression Modeling, it had a Slight Inrease in Some of the Models. 
+  - For the Classification Modeling , the Accuracy was pretty good about 94%.
+  - For the Regression Modeling, it had a Slighly Inrease in Some of the Models. 
 
 - **You Can refert to these steps in the [Piplines Notebook](https://github.com/abduulrahmankhalid/Bondora-Financial-Risk-Prediction/blob/main/Regression_Modeling_Team_A.ipynb)**
 
+# **Deployment**
 
+- We Began with Making the Front End to the Web Application, Then Implementing the Prediction Function and making sure to pass the required inputs , and it's returning the proper outputs.
 
+- After Making Sure the Web app was Running Correctly , Giving Same Results we had Befor. We Proceed with Deployment
+
+- We Deployed the Web App with **Render.com** , After Installing the Required Dependencies on the Cloud Server.
+
+- You Can Check the Deployed Web App [Here](https://bondora-financial-risk-predictor.onrender.com/).
