@@ -1,6 +1,6 @@
 # **Bondora-Financial-Risk-Prediction**
 
-### Credit risk modeling of peer-to-peer lending Bondora systems. Applying Data Cleaning to Bondora Raw Loans Dataset, Exploratory Data Visualizations for the data. Feature Engineering for the Modeling part. Classifications and Regression Modeling with Pipelines, and Finally Deployment to a Web Application using Flask and Render.
+### Credit risk modeling of peer-to-peer lending Bondora systems. Applying Data Cleaning to Bondora Raw Loans Dataset, Exploratory Data Analysis and Visualizations for the data. Feature Engineering for the Features Set. Classifications and Regression Modeling with Pipelines, and Finally Deployment to a Web Application using Flask and Render.
 
 #### This Repository is Part of the Machine Learning Engineer Internship at Technocolabs
 
