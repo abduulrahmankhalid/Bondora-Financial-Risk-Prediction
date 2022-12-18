@@ -147,7 +147,7 @@ So we will first filter out all the current status records because they are not 
   
   - XGBoost intersingly gave less accuracy than Random Forest 71%
 
-  - Not so diffrent with Logistic Regression giving about 70% Accuracy.
+  - Not so different with Logistic Regression giving about 70% Accuracy.
 
 - **You Can refert to these steps in the [Feature Engineering Notebook](https://github.com/abduulrahmankhalid/Bondora-Financial-Risk-Prediction/blob/main/Feature_Engineering_Team_A.ipynb)**
 
