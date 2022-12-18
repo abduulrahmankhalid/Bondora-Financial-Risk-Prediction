@@ -6,6 +6,6 @@
 
 - We Deployed the Web App with **Render.com**, After Installing the Required Dependencies on the Cloud Server.
 
-- You Can Check the Deployed Web App [Here](https://bondora-financial-risk-predictor.onrender.com/).
+- You Can Check the Deployed Web App [Here](https://bondora-financial-risk-prediction.onrender.com/).
 
 - **You Can refer to these steps in the [Deployment Branch](https://github.com/abduulrahmankhalid/Bondora-Financial-Risk-Prediction/tree/Deployment).**
