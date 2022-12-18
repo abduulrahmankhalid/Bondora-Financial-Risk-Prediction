@@ -8,4 +8,3 @@
 
 - You Can Check the Deployed Web App [Here](https://bondora-financial-risk-prediction.onrender.com/).
 
-- **You Can refer to these steps in the [Deployment Branch](https://github.com/abduulrahmankhalid/Bondora-Financial-Risk-Prediction/tree/Deployment).**
